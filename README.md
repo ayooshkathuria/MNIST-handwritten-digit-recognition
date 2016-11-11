@@ -17,9 +17,9 @@ Unlike previous two versions, this neural network is implemented using Theano. I
 layers and a softmax output layer in addition to fully connected layers. Dropout has also been implemented in fully connected 
 layers to address the problem of overfitting.
 
-The best efficiency I obtained was 98.87% with a couple of convolutional layers, a fully connected layer of 640 neurons and an 
-output softmax layer of 10 neuron, learning rate of 0.1. The network trained over 50 epochs, and took a LONG while on my MacBook
-Air (I'm never doing that again).
 
-This code hs been derived from code samples from the book http://neuralnetworksanddeeplearning.com/ authored by Michael Nielson.
-If you're looking for an introduction to deep learning, the book can be a great starting point. 
+The best efficiency I obtained was 98.87% with a couple of convolutional layers, a fully connected layer of 640 neurons and an 
+output softmax layer of 10 neuron, learning rate of 0.1. The network trained over 50 epochs, and took a long while on my MacBook Air (I'm never doing that again).
+
+
+This code hs been derived from code samples from the book http://neuralnetworksanddeeplearning.com/ authored by Michael Nielson. If you're looking for an introduction to deep learning, the book can be a great starting point. 
