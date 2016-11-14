@@ -23,7 +23,7 @@ def load_data():
     return training_data, validation_data, test_data
 
 def transform_data():
-     """
+    """
     Tranform the data into a format which is more feasible for training.
     
     Returns a a 3-tuple of containing training data validation data and test
@@ -118,7 +118,7 @@ class NeuralNet(object):
         
  
     def SGD(self, td, epochs, mbs, eta, lmbda = 0.0, test_data = None, train_data = None, test_accuracy =  True, test_cost = True, train_accuracy = True, train_cost = True):
-                """
+        """
         Stochastic Gradient Descent.
         
         td:         training data to perform SGD upon.
@@ -203,7 +203,7 @@ class NeuralNet(object):
         self.biases =  [b-(eta/n)*nb for b, nb in zip(self.biases, nabla_b)]
             
     def backprop(self,x,y):
-          """
+        """
         Backpropogation Algorithm. Calculates the gradient for the entire set
         of paramters of a model given a training example and it's output using
         Backpropogation.
