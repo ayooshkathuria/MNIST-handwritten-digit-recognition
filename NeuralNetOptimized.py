@@ -177,7 +177,7 @@ class NeuralNet(object):
             
                 
              
-    def update_mini_batch(self, mini_batches, eta, lmbda, n):
+    def update_mini_batch(self, mini_batches, eta, lmbda, n, mu = 0):
         
         """
         Updates the parameters of the model using the backpropogation algorithm
@@ -187,9 +187,11 @@ class NeuralNet(object):
         eta         : Learning Rate
         lmbda:      : L2-Regularisation constant
         n:          : Number of mini_batches
+        mu:         : momentum coefficient. Default value 0 is equivalent mini-batch SGD.
         """
         nabla_w  = [np.zeros(w.shape) for w in self.weights]
         nabla_b = [np.zeros(b.shape) for b in self.biases]
+        nabla_v = [np.zeros(w.shape) for w in self.weights]
         
         xv = np.asarray([x.ravel() for (x,y) in mini_batches]).transpose()
         yv = np.asarray([y.ravel() for (x,y) in mini_batches]).transpose()
@@ -199,7 +201,7 @@ class NeuralNet(object):
         
         nabla_w = [nw + ndw for  nw, ndw in zip(nabla_w, delta_w)]
         nabla_b = [nb + ndb for  nb, ndb in zip(nabla_b, delta_b)]
-        self.weights = [(1-eta*(lmbda/n))*w-(eta/len(mini_batches))*nw for w, nw in zip(self.weights, nabla_w)]
+        nabla_v = [mu*v-(eta/len(mini_batches))*nw for v, nw in zip(nabla_v, nabla_w)]
         self.biases =  [b-(eta/n)*nb for b, nb in zip(self.biases, nabla_b)]
             
     def backprop(self,x,y):
