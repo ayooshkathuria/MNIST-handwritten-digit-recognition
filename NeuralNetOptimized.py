@@ -201,7 +201,8 @@ class NeuralNet(object):
         
         nabla_w = [nw + ndw for  nw, ndw in zip(nabla_w, delta_w)]
         nabla_b = [nb + ndb for  nb, ndb in zip(nabla_b, delta_b)]
-        nabla_v = [mu*v-(eta/len(mini_batches))*nw for v, nw in zip(nabla_v, nabla_w)]
+        
+        self.weights = [mu*v-(eta/len(mini_batches))*nw for v, nw in zip(nabla_v, nabla_w)]
         self.biases =  [b-(eta/n)*nb for b, nb in zip(self.biases, nabla_b)]
             
     def backprop(self,x,y):
