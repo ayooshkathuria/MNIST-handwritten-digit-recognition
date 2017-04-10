@@ -16,7 +16,7 @@ def load_data():
     indexes.
     """
     
-    f = gzip.open('./mnist_expanded.pkl.gz', 'rb')
+    f = gzip.open('./mnist.pkl.gz', 'rb')
     training_data, validation_data, test_data = cPickle.load(f)
     return training_data, validation_data, test_data
 
@@ -196,7 +196,6 @@ def sigmoid_prime(z):
         
 data = transform_data()
 
-assert False
 
 training_data, validation_data, test_data = data[0], data[1], data[2]
 
